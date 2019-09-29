@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Infinite Loop - Bootstrap 4.0 HTML Template</title>
+    <title>Geoffeti - Removing Graffiti Made Simple</title>
     <link rel="stylesheet" href="fontawesome-5.5/css/all.min.css" />
     <link rel="stylesheet" href="slick/slick.css">
     <link rel="stylesheet" href="slick/slick-theme.css">
@@ -17,14 +17,66 @@ https://www.tooplate.com/view/2117-infinite-loop
 -->
 
   </head>
-  <body>    
+  <body>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?sensor=false&amp;key=AIzaSyDrLK2gek7N5r8lJKbyj1YUt6lZYn_x4N0"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+      function codeLatLng(lat, lng) {
+
+      var latlng = new google.maps.LatLng(lat, lng);
+      var geocoder = new google.maps.Geocoder();
+      geocoder.geocode({'latLng': latlng}, function(results, status) {
+        if (status == google.maps.GeocoderStatus.OK) {
+          console.log(results)
+        if (results[1]) {
+          var city = (results[0].address_components[3].long_name);
+          console.log(city)
+          if (city == "San Francisco"){
+            $("#info").html('<a href="https://www.sfpublicworks.org/graffiti" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');          }
+          else if (city == "Sunnyvale"){
+            $("#info").html('<a href="https://sunnyvale.dynamics365portals.us/graffiti/" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          else if (city == "San Jose"){
+            $("#info").html('<a href="https://www.sjpd.org/reportingcrime/graffiti.html" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          else if (city == "Santa Clara"){
+            $("#info").html('<a href="http://santaclaraca.gov/government/departments/public-works/maintenance-operations/graffiti-removal" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          else if (city == "Liverpool"){
+            $("#info").html('<a href="https://liverpool.gov.uk/environmental-problems/rubbish-and-litter/graffiti/" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          else if (city == "Oakland"){
+            $("#info").html('<a href="http://www2.oaklandnet.com/government/o/PWA/o/FE/s/GB/index.htm" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          else if (city == "Fremont"){
+            $("#info").html('<a href="https://www.fremont.gov/FormCenter/Maintenance-22/Report-Graffiti-149" id="info" class="tm-intro-text tm-btn-primary">Report It</a>');
+          }
+          }
+
+
+        } 
+    });
+  }
+            $.getJSON("https://api.ipify.org?format=json", function (data) {
+            })
+            navigator.geolocation.getCurrentPosition(function(position) {
+              var latitude = (position.coords.latitude);
+              var longitude  =( position.coords.longitude);
+              console.log(longitude, latitude)
+              codeLatLng(latitude, longitude)
+});
+
+    </script>
+
+
+
     <!-- Hero section -->
     <section id="infinite" class="text-white tm-font-big tm-parallax">
       <!-- Navigation -->
       <nav class="navbar navbar-expand-md tm-navbar" id="tmNav">              
         <div class="container">   
           <div class="tm-next">
-              <a href="#infinite" class="navbar-brand">Infinite Loop</a>
+              <a href="#infinite" class="navbar-brand">Geoffeti</a>
           </div>             
             
           <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,17 +88,14 @@ https://www.tooplate.com/view/2117-infinite-loop
                   <a class="nav-link tm-nav-link" href="#infinite">Home</a>
               </li>
               <li class="nav-item">
-                  <a class="nav-link tm-nav-link" href="#whatwedo">What We Do</a>
+                  <a class="nav-link tm-nav-link" href="#report">Report Graffiti</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link tm-nav-link" href="#testimonials">Testimonials</a>
+                <a class="nav-link tm-nav-link" href="#testimonials">About Graffiti</a>
               </li>
               <li class="nav-item">
                   <a class="nav-link tm-nav-link" href="#gallery">Gallery</a>
-              </li>
-              <li class="nav-item">
-                  <a class="nav-link tm-nav-link" href="#contact">Contact</a>
-              </li>                    
+              </li>                   
             </ul>
           </div>        
         </div>
@@ -54,73 +103,48 @@ https://www.tooplate.com/view/2117-infinite-loop
       
       <div class="text-center tm-hero-text-container">
         <div class="tm-hero-text-container-inner">
-            <h2 class="tm-hero-title">Infinite Loop</h2>
+            <h2 class="tm-hero-title">Geoffeti</h2>
             <p class="tm-hero-subtitle">
-              Bootstrap 4.0 Parallax Theme
-              <br>Free HTML Template by TOOPLATE
+              Removing Graffiti
+              <br>Made Simple
             </p>
         </div>        
       </div>
 
       <div class="tm-next tm-intro-next">
-        <a href="#whatwedo" class="text-center tm-down-arrow-link">
+        <a href="#report" class="text-center tm-down-arrow-link">
           <i class="fas fa-2x fa-arrow-down tm-down-arrow"></i>
         </a>
       </div>      
     </section>
 
-    <section id="whatwedo" class="tm-section-pad-top">
+    <section id="report" class="tm-section-pad-top">
       
       <div class="container">
 
             <div class="row tm-content-box"><!-- first row -->
                 <div class="col-lg-12 col-xl-12">
                     <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4 tm-section-title">What We Do</h2>
+                        <h2 class="tm-text-primary mb-4 tm-section-title">Report Graffiti</h2>
                         <p class="mb-4 tm-intro-text">
-                          This is Infinite Loop, free Bootstrap 4.0 HTML template with a parallax effect. This layout is what you can modify and use for your websites. Please spread a word to your friends about our website. Thank you for supporting us. If you have any question, you can contact us or chat with us on our <a href="https://fb.com/tooplate">Tooplate Facebook page</a>.</p>
+                          Go to your cities graffiti reporting website and report the graffiti. The United States puts a combined 12 billion dollars towards cleaning graffiti. By reporting you are helping your community by making it clean and graffiti-free! Work to spread awareness by telling your friends and familly and continue reporting graffiti! Thank you for your help!</p>
                     </div>
                 </div>
 
             </div><!-- first row -->
             
-            <div class="row tm-content-box"><!-- second row -->
-        		<div class="col-lg-1">
-                    <i class="far fa-3x fa-chart-bar text-center tm-icon"></i>
-                </div>
-                <div class="col-lg-5">
-                    <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Market Analysis</h2>
-                        <p class="mb-4 tm-intro-text">
-                          Praesent sed pharetra lorem, blandit convallis mi. Aenean ornare elit ac metus lacinia, sed iaculis nibh semper. Pellentesque est urna.</p>
-                    </div>
-                </div>
-                
-                <div class="col-lg-1">
-                    <i class="far fa-3x fa-comment-alt text-center tm-icon"></i>
-                </div>
-                <div class="col-lg-5">
-                    <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Fast Support</h2>
-                        <p class="mb-4 tm-intro-text">
-                          Credit goes to <a rel="nofollow" href="https://www.pexels.com">Pexels</a> website for all images used in this template. Cras condimentum mi et sapien dignissim luctus.</p>
-                    </div>
-                </div>
-
             </div><!-- second row -->
             
             <div class="row tm-content-box"><!-- third row -->
         		<div class="col-lg-1">
-                    <i class="fas fa-3x fa-fingerprint text-center tm-icon"></i>
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                        <h2 class="tm-text-primary mb-4">Top Security</h2>
+                        <h2 class="tm-text-primary mb-4">Report Graffiti</h2>
                         <p class="mb-4 tm-intro-text">
-                      You have <strong>no</strong> authority to post this template as a ZIP file on your template collection websites. You can <strong>use</strong> this template for your commercial websites.</p>
-                          
+                      Have you found graffiti in your city? Our website will direct you to people who can help in the same city as you!
                           <div class="tm-continue">
-                            <a href="#testimonials" class="tm-intro-text tm-btn-primary">Learn More</a>
+                             <a href="https://www.google.com" id="info" class="tm-intro-text tm-btn-primary">Report It</a>
                         </div>
                     </div>
                 </div>
@@ -130,13 +154,11 @@ https://www.tooplate.com/view/2117-infinite-loop
                 </div>
                 <div class="col-lg-5">
                     <div class="tm-intro-text-container">
-                      <h2 class="tm-text-primary mb-4">Social Work</h2>
+                      <h2 class="tm-text-primary mb-4">Cleaning Graffiti</h2>
                         <p class="mb-4 tm-intro-text">
-                      You can change <a href="https://fontawesome.com/icons?d=gallery">Font Awesome icons</a> by either <b><em>fas or far</em></b> in the HTML codes. For Examples:<br>
-                      <em>&lt;i class=&quot;fas fa-users&quot;&gt;&lt;i class=&quot;far fa-chart-bar&quot;&gt;</em> </p>
-                          
+                           Learn how to help your community. Clean the graffiti yourself taking matters into your own hands.</p>                       
                           <div class="tm-continue">
-                            <a href="#testimonials" class="tm-intro-text tm-btn-primary">Details</a>
+                            <a href="https://pressuresprayinc.com/tips-for-removing-graffiti-from-metal-wood-plastic-and-masonry-surfaces/" class="tm-intro-text tm-btn-primary">Cleaning Graffiti</a>
                         </div>
                     </div>
                 </div>
@@ -151,40 +173,26 @@ https://www.tooplate.com/view/2117-infinite-loop
       <div class="container tm-testimonials-content">
         <div class="row">
           <div class="col-lg-12 tm-content-box">
-            <h2 class="text-white text-center mb-4 tm-section-title">Testimonials</h2>
+            <h2 class="text-white text-center mb-4 tm-section-title">About Graffiti</h2>
             <p class="mx-auto tm-section-desc text-center">
-                Nulla dictum sem non eros euismod, eu placerat tortor lobortis. Suspendisse id velit eu libero pellentesque interdum. Etiam quis congue eros.
-              </p>
+                It's important to understant the impact of graffeti. How can we take pride in our neighborhood
+                if it's covered with graffiti? Please refer to the information down below: 
+            </p>
             <div class="mx-auto tm-gallery-container tm-gallery-container-2">
               <div class="tm-testimonials-carousel">
                 <figure class="tm-testimonial-item">
                   <img src="img/testimonial-img-01.jpg" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>This background image includes a semi-transparent overlay layer. This section also has a parallax image effect.</blockquote>
-                  <figcaption>Catherine Win (Designer)</figcaption>
+                  <blockquote>Removing graffiti is important because graffiti disgraces the nature of our neighborhood and it is illegal.</blockquote>
                 </figure>
 
                 <figure class="tm-testimonial-item">
                   <img src="img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>Testimonial section comes with carousel items. You can use Infinite Loop HTML CSS template for your websites.</blockquote>
-                  <figcaption>Dual Rocker (CEO)</figcaption>
+                  <blockquote>Graffiti rates are increasing but are going unnoticed so it is important that you take a step up.</blockquote>
                 </figure>
 
                 <figure class="tm-testimonial-item">
                   <img src="img/testimonial-img-03.jpg" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>Nulla finibus ligula nec tortor convallis tincidunt. Interdum et malesuada fames ac ante ipsum primis in faucibus.</blockquote>
-                  <figcaption>Sandar Soft (Marketing)</figcaption>
-                </figure>
-
-                <figure class="tm-testimonial-item">
-                  <img src="img/testimonial-img-04.jpg" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>Curabitur rutrum pharetra lobortis. Pellentesque vehicula, velit quis eleifend fermentum, erat arcu aliquet neque.</blockquote>
-                  <figcaption>Oliva Htoo (Designer)</figcaption>
-                </figure>
-
-                <figure class="tm-testimonial-item">
-                  <img src="img/testimonial-img-02.jpg" alt="Image" class="img-fluid mx-auto">
-                  <blockquote>Integer sit amet risus et erat imperdiet finibus. Nam lacus nunc, vulputate id ex eget, euismod auctor augue.</blockquote>
-                  <figcaption>Jacob Joker (CTO)</figcaption>
+                  <blockquote>Graffiti is a big problem in the United States specifically heavily populated cities like Los Angeles and San Francisco</blockquote>
                 </figure>
               </div>
             </div>
@@ -200,7 +208,7 @@ https://www.tooplate.com/view/2117-infinite-loop
           <div class="text-center col-12">
               <h2 class="tm-text-primary tm-section-title mb-4">Gallery</h2>
               <p class="mx-auto tm-section-desc">
-                Praesent sed pharetra lorem, blandit convallis mi. Aenean ornare elit ac metus lacinia, sed iaculis nibh semper. Pellentesque est urna, lobortis eu arcu a, aliquet tristique urna.
+                Various gang related graffitti harming the enviornment and society in general. Report now to stop graffiti.
               </p>
           </div>            
         </div>
@@ -211,65 +219,26 @@ https://www.tooplate.com/view/2117-infinite-loop
                       <a href="img/gallery-img-01.jpg">
                         <figure class="effect-honey tm-gallery-item">
                           <img src="img/gallery-tn-01.jpg" alt="Image 1" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Physical Health <span>Exercise!</span></i></h2>
-                          </figcaption>
                         </figure>
                       </a>
                       <a href="img/gallery-img-02.jpg">
                         <figure class="effect-honey tm-gallery-item">
                           <img src="img/gallery-tn-02.jpg" alt="Image 2" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Rain on Glass <span>Second Image</span></i></h2>
-                          </figcaption>
                         </figure>
                       </a>
                       <a href="img/gallery-img-03.jpg">
                         <figure class="effect-honey tm-gallery-item">
                           <img src="img/gallery-tn-03.jpg" alt="Image 3" class="img-fluid">
-                          <figcaption>
-                            <h2><i><span>Sea View</span> Mega City</i></h2>
-                          </figcaption>
                         </figure>
                       </a>
                       <a href="img/gallery-img-04.jpg">
                         <figure class="effect-honey tm-gallery-item">
                           <img src="img/gallery-tn-04.jpg" alt="Image 4" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Dream Girl <span>Thoughts</span></i></h2>
-                          </figcaption>
                         </figure>
                       </a>
                       <a href="img/gallery-img-05.jpg">
                         <figure class="effect-honey tm-gallery-item">
                           <img src="img/gallery-tn-05.jpg" alt="Image 5" class="img-fluid">
-                          <figcaption>
-                            <h2><i><span>Workstation</span> Offices</i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-06.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-06.jpg" alt="Image 6" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Just Above <span>The City</span></i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-01.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-01.jpg" alt="Image 7" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Another <span>Exercise Time</span></i></h2>
-                          </figcaption>
-                        </figure>
-                      </a>
-                      <a href="img/gallery-img-02.jpg">
-                        <figure class="effect-honey tm-gallery-item">
-                          <img src="img/gallery-tn-02.jpg" alt="Image 8" class="img-fluid">
-                          <figcaption>
-                            <h2><i>Repeated <span>Image Spot</span></i></h2>
-                          </figcaption>
                         </figure>
                       </a>
                     </div>
@@ -280,75 +249,6 @@ https://www.tooplate.com/view/2117-infinite-loop
     </section>
 
     <!-- Contact -->
-    <section id="contact" class="tm-section-pad-top tm-parallax-2">
-    
-      <div class="container tm-container-contact">
-        
-        <div class="row">
-            
-            <div class="text-center col-12">
-                <h2 class="tm-section-title mb-4">Contact Us</h2>
-                <p class="mb-5">
-                  Proin enim orci, tincidunt quis suscipit in, placerat nec est. Vestibulum posuere faucibus posuere. Quisque aliquam velit eget leo blandit egestas. Nulla id posuere felis, quis tristique nulla.
-                </p><br>
-            </div>
-            
-            <div class="col-sm-12 col-md-6">
-              <form action="" method="get">
-                <input id="name" name="name" type="text" placeholder="Your Name" class="tm-input" required />
-                <input id="email" name="email" type="email" placeholder="Your Email" class="tm-input" required />
-                <textarea id="message" name="message" rows="8" placeholder="Message" class="tm-input" required></textarea>
-                <button type="submit" class="btn tm-btn-submit">Submit</button>
-              </form>
-            </div>
-            
-            <div class="col-sm-12 col-md-6">
-
-                <div class="contact-item">
-                  <a rel="nofollow" href="https://www.tooplate.com/contact" class="item-link">
-                      <i class="far fa-2x fa-comment mr-4"></i>
-                      <span class="mb-0">Chat Online</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">
-                  <a rel="nofollow" href="mailto:mail@company.com" class="item-link">
-                      <i class="far fa-2x fa-envelope mr-4"></i>
-                      <span class="mb-0">mail@company.com</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">
-                  <a rel="nofollow" href="https://www.google.com/maps" class="item-link">
-                      <i class="fas fa-2x fa-map-marker-alt mr-4"></i>
-                      <span class="mb-0">Our Location</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">
-                  <a rel="nofollow" href="tel:0100200340" class="item-link">
-                      <i class="fas fa-2x fa-phone-square mr-4"></i>
-                      <span class="mb-0">255-662-5566</span>
-                  </a>              
-                </div>
-                
-                <div class="contact-item">&nbsp;</div>
-            
-            </div>
-            
-            
-        </div><!-- row ending -->
-        
-      </div>
-
-      	<footer class="text-center small tm-footer">
-          <p class="mb-0">
-          Copyright &copy; 2020 Company Name 
-          
-          . <a rel="nofollow" href="https://www.tooplate.com" title="HTML templates">Designed by TOOPLATE</a></p>
-        </footer>
-
-    </section>
     
     <script src="js/jquery-1.9.1.min.js"></script>     
     <script src="slick/slick.min.js"></script>
